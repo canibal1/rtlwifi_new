@@ -1,15 +1,25 @@
 GENELDE HP WİFİ rtl8723be OLAN BİLGİSAYARLARA UBUNTU YÜKLEDİKTEN SONRA OLUŞAN WİFİ SİNYAL SORUNUNUN ÇÖZÜMÜ (AŞAĞIDAKİ YAZILAR ANLAŞILMIYOR :D BENİM YÖNERGELERİ TAKİP ETMENİZİ TAVSİYE EDERİM :D)
 
 git clone https://github.com/lwfinger/rtlwifi_new.git
+
 cd rtlwifi_new
+
 make
+
 sudo make install
+
 sudo modprobe -rv rtl8723be
+
 sudo modprobe -v rtl8723be ant_sel=2
+
 sudo ip link set wlp2s0 up// (wlp2s0 örnek wireless sürücü kodudur. ifconfig yazarak wlp.s0 ın hangisi olduğunu bulabiliriz.)
+
 sudo iw dev wlp2s0 scan
+
 ayarların kalıcı olarak kalmasını istiyorsak
+
 echo "options rtl8723be ant_sel=2" | sudo tee /etc/modprobe.d/50-rtl8723be.conf 
+
 komutlarını yazıyoruz ve wifi sinyalimiz full çekiyor.
 
 
